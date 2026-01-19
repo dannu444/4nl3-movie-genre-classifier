@@ -39,8 +39,11 @@ for index, row in df_combined.iterrows():
     df_combined.at[index, 'genres'] = row['genres'].split('|')[0]  # adjust to keep only first genre
     time.sleep(0.25)  # for TMDb rate limit
 
+# drop rows with missing plots and remove unnecessary columns
+df_combined.dropna(subset=['plot'], inplace=True)
+df_combined = df_combined[['title', 'genres', 'plot']]
+print(f"Dataframe shape after fetching plots and cleaning: {df_combined.shape}")
 
 # convert table to csv
-
 df_combined.rename(columns={'genres': 'genre'}, inplace=True)
 df_combined.to_csv(f"{data_dir}/output.csv", index=False)
