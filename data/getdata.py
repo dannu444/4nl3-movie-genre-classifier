@@ -41,7 +41,7 @@ for index, row in df_combined.iterrows():
 
 # drop rows with missing plots and remove unnecessary columns
 df_combined.dropna(subset=['plot'], inplace=True)
-df_combined = df_combined[['title', 'genres', 'plot']]
+df_combined = df_combined[['movieId', 'title', 'genres', 'plot']]
 print(f"Dataframe shape after fetching plots and cleaning: {df_combined.shape}")
 
 # convert table to csv
