@@ -1,6 +1,7 @@
 # Data
 data/ml-20m/
 data/output.csv
+data/to_annotate
 
 
 # Byte-compiled / optimized / DLL files
