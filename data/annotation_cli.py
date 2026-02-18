@@ -39,7 +39,7 @@ def main():
         label = None
         while (label == None):
             label_input = input("\nYour label: ").strip()
-            if (len(label_input) > 1 or label_input.isdigit() != True): print("Input must be a number from 1-11 (see legend above)!")
+            if (label_input.isdigit() != True): print("Input must be a number from 1-11 (see legend above)!")
             else: 
                 match label_input:
                     case "1": label = "Fantasy"
