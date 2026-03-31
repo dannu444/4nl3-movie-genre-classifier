@@ -2,6 +2,7 @@
 data/ml-20m/
 data/output.csv
 data/to_annotate
+models/training_checkpoints/
 
 
 # Byte-compiled / optimized / DLL files
