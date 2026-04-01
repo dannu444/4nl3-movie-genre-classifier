@@ -9,6 +9,18 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Binary model files
+*.bin
+*.safetensors
+*.pt
+*.pth
+trainer_state.json
+training_args.bin
+optimizer.pt
+rng_state.pth
+scheduler.pt
+config.json
+
 # C extensions
 *.so
 
