@@ -21,6 +21,15 @@ rng_state.pth
 scheduler.pt
 config.json
 
+# LaTeX compilation artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+
 # C extensions
 *.so
 
