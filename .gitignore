@@ -1,6 +1,7 @@
 # Data
 data/ml-20m/
 data/to_annotate
+data/second_round_files
 models/training_checkpoints/
 
 
