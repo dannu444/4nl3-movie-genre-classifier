@@ -1,0 +1,12 @@
+\subsection{Dataset Properties}
+Our project uses a combination of open-source data and API-based data collection. The primary source of labels and movie identifiers is the MovieLens (ml-20m) dataset provided by the GroupLens research group. MovieLens data is collected from users of the MovieLens recommendation platform, where users are randomly selected and included if they have rated at least 20 movies. Genre labels are assigned by MovieLens based on curated metadata, and user information is anonymized. No demographic data is included. The dataset is publicly available under a research-use license.
+
+MovieLens provides multiple data files including movies.csv, ratings.csv, tags.csv, and links.csv. In particular, movies.csv contains movie titles and genre labels, while links.csv provides TMDB identifiers that allow linkage to external metadata sources. The dataset itself does not include plot descriptions.
+
+To obtain natural language plot descriptions, we use The Movie Database (TMDB) API, which provides structured access to publicly available movie descriptions. Data collection is performed programmatically using API calls rather than web scraping, and API rate limits and terms of service are respected during data retrieval. 
+
+Due to API redistribution restrictions, plot descriptions cannot be publicly shared. As a result, the repository contains a data generation script rather than the raw plot text. Each team member downloads the MovieLens dataset locally and runs the script, which queries the APIs and produces a merged CSV file. 
+
+The final dataset is a CSV file where each row corresponds to a single movie and contains the following fields: movie ID, title, genre label, and plot description. The genre label serves as the training annotation and originates from the MovieLens dataset. No manual annotation is performed by the team. Text preprocessing (e.g. tokenization) will be handled during the modeling stage rather than during dataset generation. This is due to the variation of the models. Hence, for a detailed explanation for the data preprocessing refer to the X section.
+
+Although the MovieLens dataset contains ~30,000 movies, we will use a subset of approximately 5,000 movies for this project. This subset size is sufficient for training and evaluation while remaining computationally manageable and provides sufficient coverage across genres for training and evaluation, as it allows for more reliable performance comparisons.
