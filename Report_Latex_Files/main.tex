@@ -17,6 +17,7 @@
 \usepackage{microtype}
 \usepackage{inconsolata}
 \usepackage{graphicx}
+\usepackage{subfiles}
 
 % If the title and author information does not fit in the area allocated, uncomment the following
 %
@@ -76,6 +77,7 @@
 \section{Introduction}
 
 Here, write a brief introduction to the problem you are solving. This can be adapted from your problem description and motivation from the original proposal. This should be around 0.25-0.5 pages.
+\subfile{Nour/1-intro.tex}
 
 \section{Related Work}
 
@@ -86,24 +88,54 @@ Here, talk about the related work you encountered for your approach. Cite at lea
 You should write about your dataset here, following the guidelines regarding item 2. This section may be 0.5-1 pages. Depending on your specific dataset, you may want to include subsections for the preprocessing, annotation, etc.
 
 \section{Features}
-
 Describe any features you used for your model, or how your data was input to your model. Are you doing feature engineering or feature selection? Are you learning embeddings? Is it all part of one neural network? Refer to item 3. This may range from 0.25 pages to 0.5 pages.
+\subfile{Nour/3-LR-features-and-inputs.tex}
 
 \section{Implementation}
-
 Describe your model and implementation here. Refer to item 4. This may take around a page.
+\subfile{Nour/4-LR-implementation.tex}
 
 \section{Results and Evaluation}
-
 What are your results? What did you implement and what did your classmates implement? What are your baselines? Refer to items 5 and 6. This may take around 0.5-1 pages.
+\subfile{Nour/5p1-LR-evaluation.tex}
+\subfile{Nour/5p2-baseline-results.tex}
+
+\subfile{Nour/6-LR-compare.tex}
+% Add your model f1 score and accuracy here
+
+\begin{table*}
+  \centering
+  \begin{tabular}{lll}
+    \hline
+    \textbf{Model} & \textbf{F1 Score (Weighted)} & \textbf{Accuracy} \\
+    \hline
+    Majority Baseline & 0.11 & 0.27 \\
+    Random Baseline & 0.07 & 0.05 \\
+    \hline
+    Base Logistic Regression (Word2Vec) & 0.45 & 0.48 \\
+    Variation 1: Logistic Regression (TF-IDF) & 0.39 & 0.45 \\
+    Variation 2: Logistic Regression (DistilBERT) & 0.51 & 0.53 \\
+    \hline
+    Participant 1: DeBERTa (deberta-vs-base) & 0.51 & 0.53 \\
+    Participant 2: RoBERTa (Roberta-base) & 0.53 & 0.55 \\
+    \hline
+  \end{tabular}
+  \caption{\label{model-results}
+    Model performance comparison on movie genre classification.
+  }
+\end{table*}
+
 
 \section{Error Analysis}
 
 What kind of errors are your models making? This doesn't have to be super complicated. Confusion matrices are great. Qualitative observations are also great. This means looking at many cases where your model is wrong (wrong class or high error) and looking for patterns yourself. What about the text might be giving it difficulty? Qualitative analysis is underappreciated and can often give you great insight into issues with your model. Examples are useful here. Refer to item 7. This may be around a half page.
+\subfile{Nour/7p1-LR-error-analysis.tex}
 
 \section{Conclusions}
 
 Summarize your work briefly. Reflect on your implementation and areas for improvement. What do you suggest people work on next (mentioned also in item 7)? This should likely be less than 0.25 pages.
+\subfile{Nour/7p2-LR-conclusions.tex}
+
 
 \section{Template Notes}
 

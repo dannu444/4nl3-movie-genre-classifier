@@ -1,0 +1,13 @@
+\subsection{Logistic Regression Model}
+
+One of the approaches taken by a participant is finetuning a DeBERTa (deberta-vs-base) model. 
+They finetuned on 90\% of the given data and used the remaining 10\% for validation across 10 epochs. 
+They achieved an accuracy of 0.62 and a (weighted) f1 score of 0.59 on the validation set. 
+On the other hand, when testing the model on the provided test set, they achieved a (weighted) f1 score of 0.51 and an accuracy of 0.53. 
+These results were expected because, after constructing a couple of models, and trying different variations for the task, when using DistilBERT word embeddings with a logistic regression model and using it to predict the genres, the same results were obtained for the test set. 
+
+Another approach taken by another participant is finetuning a RoBERTa (Roberta-base) model. 
+As can be seen below, the model scored a f1-score of 0.53 and an accuracy of 0.55. 
+This surprisingly performed better than both the DeBERTa and logistic regression DistilBERT models. 
+This may be due to the tokens being more specific to certain contexts or length of the movie plots. 
+Furthermore, this may also be due to the splitting of the data, optimization of the model parameters, etc.
