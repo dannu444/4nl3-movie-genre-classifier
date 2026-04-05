@@ -30,6 +30,8 @@ config.json
 *.fls
 *.log
 *.synctex.gz
+*.out
+*.pdf
 
 # C extensions
 *.so

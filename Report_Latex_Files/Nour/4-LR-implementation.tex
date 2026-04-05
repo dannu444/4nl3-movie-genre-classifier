@@ -1,0 +1,52 @@
+\subsection{Logistic Regression Model}
+The first model created was a Logistic Regression model with skip-gram word embeddings. 
+This is the trained baseline. 
+It has several variations each with different word representations as input with some variations outperforming others. 
+For all models, Sci-kit’s built in logistic regression loss function which is cross-entropy loss was used.
+
+\subsubsection{Base Logistic Model with Skip-gram}
+The base model is as mentioned, a Logistic regression model with skip-gram word embeddings. 
+To create the model, first the movie descriptions were lemmatized to remove all words excluding nouns, adjectives, verbs and adverbs. 
+They were then tokenized by whitespace. 
+Next, a Word2Vec model was created using Gensim with input parameters; skip-gram, vector size of 200, window size 5, and 30 epochs. 
+Next, the document embeddings were determined using the word embeddings produced by the model by averaging them into a single 200-dimensional vector. 
+Afterwards, the data was split such that 80\% was for training and 20\% for testing. 
+Next the Logistic Regression model was instantiated with max iterations of 1000, and fit using the training data. 
+Finally, the data was evaluated on the test set obtaining a weighted f1 score of 0.445 and an accuracy of 0.475. 
+To optimize the model, grid search and stratified 5-fold cross validation was used. 
+The model was input into a GridSearchCV object along with a parameter grid consisting of C values 0.1, 0.9, 1, 1.1, 1.15, and 1.2, and L1 and L2 as options for regularization. 
+The scoring metric used was weighted f1 score. 
+This resulted in a slight increase, concluding the best model consisted of a C value of 1.1, while using L2 regularization. 
+This model outperforms both simple baselines significantly which is expected considering the model is trained, it has knowledge of certain relationships among words within the training set.
+
+\subsubsection{Logistic Regression with TF-IDF}
+The first variation of the model was a logistic regression model with TF-IDF word representations. 
+To create the model, first the movie plot descriptions were preprocessed and lemmatized to remove all words excluding nouns, proper nouns, adjectives, adverbs, and verbs. 
+It was decided to add proper nouns to the vocabulary considering this may signal to a specific genre. 
+For example, there are several Animation movies and many of them are about the adventures of Winnie the Pooh. 
+Hence, when the model spots the name Winnie the Pooh, it can uniquely capture the relationship between the movies and the genre. 
+After lemmatization, the words were tokenized by whitespace and split into an 80\% training set and 20\% test set. 
+Next the resulting words were transformed into a TF-IDF word representation using Sci-kit’s TfidfVectorizer class. 
+They were then fed into a logistic regression model that was fit on the training data. 
+Finally, the model was evaluated on the test set scoring an f1 score of 0.387 and an accuracy of 0.449. 
+This model preformed worse than the base logistic regression model, and this is expected considering it uses a simple bag-of-words variation as input. 
+Hence, no actual semantic meaning was learned, only word and document frequencies. However, this variation does still perform better than the random and majority baselines. 
+This is considering the model uses word frequency as a metric when evaluating movie plots against genres, rather than random guessing or guessing the same genre.
+
+\subsubsection{Logistic Regression with DistilBERT}
+The second variation created was a logistic regression model with DistilBERT word embeddings. 
+To create the model, first the distilbert-base-cased word embeddings were loaded from Hugging-Face. 
+Notice the cased version was chosen considering this maintains capitalization for words. 
+This is important because the absence of capitalization may result in lost information since the model will not be able to distinguish between the same words that may have completely different meanings. 
+For example, “IT” the clown is not the same as “it” the pronoun. 
+Next, DistilBERT’s vocab and weights were loaded using Hugging-Face’s AutoTokenizer and AutoModel classes. 
+Afterwards, the model was put into evaluation mode, and the data was split into an 80\% training set and a 20\% testing set. 
+Next a LabelEncoder was created to map the genres to integers for later evaluation. 
+Then a function that determines the BERT word embeddings for the movie plots was created (get\_bert\_embeddings). 
+This function first converts the text into tensors in batches of 32 then passes them through the BERT model to create the embeddings. 
+Next a logistic regression model was created and fed the BERT embeddings for training. 
+Finally, it was evaluated with the same metrics resulting in an f1 score of 0.512 and an accuracy of 0.531. 
+This has a significant increase in both the f1 score and accuracy compared to both previous variations (including the majority and random baselines). 
+This is expected considering a pretrained model was used to determine contextual word embeddings that was fed into the logistic regression model for prediction. 
+DistilBERT creates a word representation based on the word’s surrounding text. 
+In contrast to skip-gram that only generates static embeddings that has a single fixed vector for a word regardless of its surrounding words.
