@@ -1,13 +1,14 @@
 \subsection{Logistic Regression Model}
 
-One of the approaches taken by a participant is finetuning a DeBERTa (deberta-vs-base) model. 
-They finetuned on 90\% of the given data and used the remaining 10\% for validation across 10 epochs. 
-They achieved an accuracy of 0.62 and a (weighted) f1 score of 0.59 on the validation set. 
-On the other hand, when testing the model on the provided test set, they achieved a (weighted) f1 score of 0.51 and an accuracy of 0.53. 
-These results were expected because, after constructing a couple of models, and trying different variations for the task, when using DistilBERT word embeddings with a logistic regression model and using it to predict the genres, the same results were obtained for the test set. 
+Comparing the results of the first participant's model (DeBeERTa) to the base Logistic Regression model, the DeBERTa model performed significantly better. 
+This is expected as the DeBERTa model is a transformer-based model that has been pretrained on a large corpus of text data, allowing it to capture complex patterns and relationships in the data.
+Additionally DeBERTa uses contexualized word embeddings, which can capture the meaning of words in different contexts, whereas the logistic regression model simply used skip-gram word embeddings to determine the genres.
+The DeBERTa scored approximately 0.06 higher than the base logistic regression model for f1 score, and 0.05 higher for accuracy.
+However, comparing this model to the second variation of the logistic regression model, which used DistilBERT word embeddings, the results were quite surprising, considering that they scored the exact same for both f1 score and accuracy.
+This is considering the DistilBERT model was not finetuned on the given data, and was only used to generate word embeddings for the logistic regression model.
 
-Another approach taken by another participant is finetuning a RoBERTa (Roberta-base) model. 
-As can be seen below, the model scored a f1-score of 0.53 and an accuracy of 0.55. 
-This surprisingly performed better than both the DeBERTa and logistic regression DistilBERT models. 
+As for the second participant's model (RoBERTa), it surprisingly performed better than both the DeBERTa and logistic regression models. 
+The RoBERTa model scored approximately 0.08 higher than the base logistic regression model for f1 score, and 0.07 higher for accuracy.
+Compared to the logistic regression with DistilBERT word embeddings, the RoBERTa model scored approximately 0.02 higher for f1 score, and 0.02 higher for accuracy.
 This may be due to the tokens being more specific to certain contexts or length of the movie plots. 
 Furthermore, this may also be due to the splitting of the data, optimization of the model parameters, etc.
