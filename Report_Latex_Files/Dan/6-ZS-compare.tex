@@ -1,0 +1,5 @@
+\subsection{Zero-Shot Model (Flan-T5)}
+Comparing Flan-T5-base to the fine-tuned models trained by our peers, it is not unexpected that it performs significantly worse.
+Fine-tuned models, such as DeBERTa and RoBERTa, are almost always likely to outperform zero-shot models in this way as they are trained specifically for the task and are able to learn biases within the data.
+Zero-shot models such as Flan-T5, while more generalizable to large sets of tasks, will suffer in performance on unseen tasks - an unavoidable tradeoff.
+These fine-tuned models also do not need to take in as many tokens per instance, as zero-shot models require prompts in addition to the data instance, which can result in diminishing performance as the model input grows and attention weights become more spread out.
