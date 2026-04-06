@@ -1,0 +1,14 @@
+\subsection{Zero-Shot Model (Flan-T5)}
+Input for the zero-shot model can be broken down into two areas of consideration; first, the prompt utilized, and second how the full prompt and instance are then tokenized and converted to embeddings. 
+To determine a suitable prompt, tuning was conducted on ten training instances. 
+A basic prompt structure was established, framing the description in a similar format to how the model, Flan-T5, was trained.
+Flan-T5, an instruction-tuned model, was trained specifically for zero-shot classification and similar question and answer tasks, and tends to perform best when prompts are structured with leading context, followed by the instance text and an end prompt to indicate an answer. 
+With this in mind, the primary area of input experimentation lies within what leading context to provide. 
+Prompts with little context were tested first, containing a simple description of the task (e.g. “correctly classify this film description”) and the range of available options, to more complex prompts that inform the model of what skills the model should utilize, how the answer should be formatted, and well-known prompt additions to increase performance (e.g. “think it through step by step”). 
+Ultimately, a prompt that balanced both length and volume of context was selected as the best.
+\\
+Tokenization of input and the following conversion to embeddings are part of the model itself and were not modified by our group in its experiments. 
+To summarize how this process is internally executed, model inputs are first tokenized with SentencePiece, which preserves word order and most importantly encodes whether a token begins or is in the middle of a sentence. 
+Additionally, words can be broken into subwords, which allows the tokenizer to gracefully handle unseen tokens. 
+These tokens are then encoded to a set of learned static embeddings and scaled according to their position within the sentence. 
+It is these embeddings which are provided as input to the encoder half of Flan-T5.
