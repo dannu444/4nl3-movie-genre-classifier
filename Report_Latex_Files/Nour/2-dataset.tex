@@ -1,0 +1,42 @@
+\subsection{Dataset Properties}
+Our project uses a combination of open-source data and API-based data collection. 
+The primary source of labels and movie identifiers is the MovieLens (ml-20m) dataset provided by the GroupLens research group. 
+MovieLens data is collected from users of the MovieLens recommendation platform, where users are randomly selected and included if they have rated at least 20 movies. 
+Genre labels are assigned by MovieLens based on curated metadata, and user information is anonymized. 
+No demographic data is included. The dataset is publicly available under a research-use license.
+
+MovieLens provides multiple data files including movies.csv, ratings.csv, tags.csv, and links.csv. 
+In particular, movies.csv contains movie titles and genre labels, while links.csv provides TMDB identifiers that allow linkage to external metadata sources. 
+The dataset itself does not include plot descriptions.
+
+To obtain natural language plot descriptions, we use The Movie Database (TMDB) API, which provides structured access to publicly available movie descriptions. 
+Data collection is performed programmatically using API calls rather than web scraping, and API rate limits and terms of service are respected during data retrieval. 
+
+The final dataset was not changed along the course of the project. It remained as a CSV file where each row corresponds to a single movie and contains the following fields: movie ID, title, genre label, and plot description. 
+The genre label serves as the training annotation and originates from the MovieLens dataset. 
+No manual annotation is performed by the team. Text preprocessing (e.g. tokenization) will be handled during the modeling stage rather than during dataset generation. 
+This is due to the variation of the models. 
+Hence, for a detailed explanation for the data preprocessing refer to the individual Implementation sections for each model.
+
+Although the MovieLens dataset contains ~30,000 movies, we will use a subset of approximately 5,457 movies for this project. 
+This subset size is sufficient for training and evaluation while remaining computationally manageable and provides sufficient coverage across genres for training and evaluation, as it allows for more reliable performance comparisons.
+
+
+\subsection{Data Size}
+The expected size of the dataset is approximately 5,457 instances. 
+Each row is specific to a movie and contains the following four columns: identification number, title, genre, and plot description. 
+The third column contains the label which is the genre of the movie.
+
+\subsubsection{Example Data Point}
+An example of a data point in the dataset is as follows:
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|p{3.5cm}|}
+\hline
+\textbf{ID} & \textbf{Title} & \textbf{Description} \\
+\hline
+1 & Toy Story (1995) & Led by Woody, Andy's toys live happily in his room until Andy's birthday brings Buzz Lightyear onto the scene. Afraid of losing his place in Andy's heart, Woody plots against Buzz. But when circumstances separate Buzz and Woody from their owner, the duo eventually learns to put aside their differences. \\
+\hline
+\end{tabular}
+\caption{Example movie entry.}
+\end{table}
