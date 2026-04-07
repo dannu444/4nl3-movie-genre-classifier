@@ -1,0 +1,12 @@
+\subsection{Fine-Tuned Transformer Model (BERT-base-uncased)}
+This model, BERT-base-uncased, is a pretrained transformer encoder model that is fine-tuned to multi-class sequence classification. A classification head was added on top of the token representation to predict on of the several possible movie genres. 
+
+To implement this model, dataset was first converted into a Hugging Face Dataset object, and genre labels were mapped to integer IDs using a ClassLabel feature. After that, the data was tokenized and split into a training and validation/test set using an 80/20 split. 
+
+The training for the model was conducted using Hugging Face’s ‘Trainer’ API with configurations such as, a learning rate of 2e-5, a batch size of 8, 3 epochs, and an evaluation strategy of choosing the best model of the 3 epochs. The selection and performance for this was measured using accuracy and weighted F1 scores. The final model achieved an accuracy score of \bf{0.5586} and a weighted F1 score of \bf{0.5319}. 
+
+To evaluate overall performance, the two majority and random baselines were used. The BERT significantly outperformed both and demonstrated its ability to learn meaningful patterns from the data.
+
+One challenge with for model is the fact that the task is single-label classification. Movies can often belong to several different genres and limiting to a single label likely limits performance of the model. Additionally, for timing purposes, there was limited hyperparameter tuning, likely preventing the model from reaching optimal performance. 
+
+For more details, model used (BERT-base-uncased), is cited at the end of this report.

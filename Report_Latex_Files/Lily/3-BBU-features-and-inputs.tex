@@ -1,0 +1,9 @@
+\subsection{Fine-Tuned Transformer Model (BERT-base-uncased)}
+The input for the fine-tuned BERT model is made up of primarily raw textual movie descriptions, which are used for the task of genre classification. Instead of feature engineering, like typically used in TF-IDF or n-gram models, this model leverages representation learning with pretrained contextual embeddings. 
+
+Each movie description is tokenized using the pretrained BERT tokenizer, which uses WordPiece tokenization. This allows for ‘subword’ tokenization, balancing of vocabulary size, and effective handling of rare vocabulary tokens. Each sequence was padded to a maximum length of 512 tokens, the maximum sequence length supported by BERT, in order to ensure consistent input size and account for the varying lengths of the textual movie descriptions. 
+
+The tokenized inputs are converted into contextual embeddings as part of the model. The embeddings are not static, they are dynamically updated during model fine-tuning. This allows the model to adapt its representations specifically for the movie genre classification task. This is helpful since movie descriptions often contain nuanced language, with meanings of words depending heavily on context.
+
+No additional features or augmentation techniques were used. This model caries feature representation through transitioning for raw text to contextual embeddings with fine-tuning. It contrasts with the baseline models, which both rely on simple, non-contextual representations. 
+
