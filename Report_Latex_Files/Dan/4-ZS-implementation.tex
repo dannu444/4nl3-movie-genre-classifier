@@ -1,9 +1,11 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
 \subsection{Zero-Shot Model (Flan-T5)}
 For a detailed account of the Flan-T5 model, both the original T5 paper and the Flan-T5 are cited at the end of this report; a brief summary of its implementation and training will be included here, with more focus placed on model performance compared to our trained baseline. 
 
 Flan-T5 is an instruction fine-tuned large encoder-decoder model. 
 The original model, T5, is an extension of the transformer model, consisting of two encoder segments, two decoder segments, followed by a final linear layer. 
-According to the T5 paper, T5 largely follows the original transformers implementation, only removing layer norm bias within each layer, placing layer normalization outside of the residual connection between layers, and using a different method for positional encoding of embeddings that is described in Features \& Inputs [CITE]. 
+According to the T5 paper, T5 largely follows the original transformers implementation, only removing layer norm bias within each layer, placing layer normalization outside of the residual connection between layers, and using a different method for positional encoding of embeddings that is described in Features \& Inputs (Raffel et.al, 2023). 
 Flan-T5 trains this model on a large corpus of question/answer tasks, under the hypothesis that this method improves generalization to unseen tasks phrased in a similar fashion. 
 It is this training that encouraged our group to experiment with the model on our task.
 	
@@ -15,3 +17,4 @@ In other words, the genres are returned in alphabetical order with no way of det
 As a result, the single genres listed are biased towards the upper end of the alphabet and may not reflect what the description implies. 
 Since this model is untrained and therefore cannot learn to account for this bias, it fails where our trained baseline does not. 
 A second issue stems from the inconsistency in detail level between descriptions, which is further discussed within Error Analysis.
+\end{document}
