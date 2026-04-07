@@ -1,0 +1,8 @@
+\subsection{Fine-Tuned Transformer Model (BERT-base-uncased)}
+The comparison of the performance of the BERT-base-uncased model is summarized in the provided table Compared to the majority baseline and random baseline, the BERT model shows a substantial improvement with significantly higher accuracy and F1 Scores. This confirms that the model performed effectively and learned from the input data. 
+
+Compared to the other trained models, a few key observations can be made. 
+Traditional models, such as logistic regression, often rely on simply feature representations (BoW, or TF-IDF) which limit their ability to read context. Because of this, they typically on tasks that involve nuanced language, like movie genre classification. Transformer models, like BERT, are typically better suited for tasks like this. 
+Compared to the RNN-based-model, it lacks the large-scale pretraining the BERT utilizes. This could result in weaker performance on long and complex inputs, like movie descriptions. 
+Additionally, the Flan-T5-zero-shot model doesn’t involve task-specific training which can make it;s performance much lower when compared to a transformer model like BERt. 
+Overall, the results seem to align with expectations, which is that fined-tuned transformer models, such as BERT, tend to outperform the simpler baselines and zero-shot approaches.
