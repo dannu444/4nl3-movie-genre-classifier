@@ -85,7 +85,13 @@ We aim to create a natural language processing algorithm that would take as inpu
 
 \section{Related Work}
 
-Here, talk about the related work you encountered for your approach. Cite at least 5 references. Refer to item 1. No one has done exactly your task? Write about the most similar thing you can find. This should be around 0.25-0.5 pages.
+When searching for a dataset to approach this problem, Arevalo et al.'s "Gated Multimodal Units for Information Fusion" was extremely helpful. It redirected the team towards MovieLens, a database containing millions of movies and their details. The paper presents the Gated Multimodal Unit (GMU), a neural network that learns how much to rely on each input modality through a gating mechanism. The model performs multilabel (multi-genre) classification and combines text from plot summaries and images from movie posters, outperforming both single-modality baselines and other multimodal fusion approaches. (Arevalo et al., 2017)
+
+Do et.al work on the similar task of book genre classification, taking as input the book cover as an image as well as its title. They employ a hybrid model, utilizing a convolutional neural network to process the image, as well as a BERT model to analyze book titles. Combining these features with a dot-product attention mechanism, they were able to achieve impressive performance with an F-score of 0.79. While we do not consider image input within our own work, this work does point towards the importance of textual features in applications such as genre classification as their work improved upon the performance of image and textual features alone. (Do et al., 2020)
+
+This work proposes a Genre Attention Model that would use transformer-based models and hierarchal mechanism to classify movie genres from plot descriptions, a multi-label task. It found that a DeBERTa-based model performed the best and was the most efficient. The study also showed that text-based approaches to a task like this are typically more effective than audio or visual methods. (Zhu et al., 2022)
+
+
 
 \section{Dataset}
 \subfile{Nour/2-dataset.tex}
@@ -161,7 +167,6 @@ As can be seen below, the model scored a f1-score of 0.53 and an accuracy of 0.5
 
 \section{Error Analysis}
 
-What kind of errors are your models making? This doesn't have to be super complicated. Confusion matrices are great. Qualitative observations are also great. This means looking at many cases where your model is wrong (wrong class or high error) and looking for patterns yourself. What about the text might be giving it difficulty? Qualitative analysis is underappreciated and can often give you great insight into issues with your model. Examples are useful here. Refer to item 7. This may be around a half page.
 \subfile{Nour/7p1-LR-error-analysis.tex}
 \subfile{Dan/7p1-ZS-error-analysis.tex}
 \subfile{Lily/7p1-BBU-error-analysis.tex}
@@ -170,9 +175,10 @@ What kind of errors are your models making? This doesn't have to be super compli
 
 \section{Conclusions}
 
-Summarize your work briefly. Reflect on your implementation and areas for improvement. What do you suggest people work on next (mentioned also in item 7)? This should likely be less than 0.25 pages.
 \subfile{Nour/7p2-LR-conclusions.tex}
+
 \subfile{Dan/7p2-ZS-conclusions.tex}
+
 \subfile{Lily/7p2-BBU-conclusions.tex}
 
 \subfile{Sriya-report-sections/7p2-rnn-conclusion.tex}
@@ -182,8 +188,11 @@ Summarize your work briefly. Reflect on your implementation and areas for improv
 
 \section*{Team Contributions}
 
-Write in this section a few sentences describing the contributions of each team member. What did each member work on? Refer to item 8.
 \subfile{Nour/8-Nour-contributions.tex}
+
+\subfile{Dan/8-Dan-Contributions.tex}
+
+\subfile{Lily/8-Lily-contributions.tex}
 
 \subfile{Sriya-report-sections/8-Sriya-contributions.tex}
 
