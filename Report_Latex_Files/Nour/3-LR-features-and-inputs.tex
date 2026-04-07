@@ -12,7 +12,7 @@ These aspects are what generally make up a movie and considering most of these c
 The first variation of the logistic regression model is the TF-IDF and Additional Postags Model (labelled Variation 1 in the logistic-regression-model.ipynb file). 
 It first consists of modifying the lemmatization process such that it kept proper nouns in addition to the other types of words (nouns, verbs, adverbs, and adjectives). 
 Furthermore, the word representation used is a static TF-IDF bag-of-words model. 
-As can be seen in figure X, this results in both the accuracy and f1-score being reduced by approximately 0.04 and 0.07 respectively. 
+As can be seen in table \ref{model-results}, this results in both the accuracy and f1-score being reduced by approximately 0.04 and 0.07 respectively. 
 This is likely due to the fact that whereas TF-IDF just counts word frequencies, Word2Vec captures contextual relationships and can understand the similarity between certain words. 
 This is important for movie genre classification considering the same genre will likely have similar contexts thereby allowing the model to capture those relationships.
 
@@ -20,7 +20,7 @@ This is important for movie genre classification considering the same genre will
 The second variation of the logistic regression model is the Logistic Regression DistilBERT Model (labelled Variation 2 in the logistic-regression-model.ipynb file). 
 It uses the Hugging-Face pre-trained DistilBERT model as input. 
 This model has much richer word representations compared to Word2Vec and TF-IDF. 
-This is clearly reflected in figure X where the f1-score and accuracy increase by approximately 0.08 and 0.06 compared to the Base Model respectively. 
+This is clearly reflected in table \ref{model-results} where the f1-score and accuracy increase by approximately 0.08 and 0.06 compared to the Base Model respectively. 
 There are several reasons as to why these metrics experienced a notable increase. 
 First, whereas the Base Word2Vec model was trained only on movie plot dataset, DistilBERT was trained on several resources such as Wikipedia and BookCorpus. 
 Hence DistilBERT already has a deeper language understanding compared to the Base Model. 
