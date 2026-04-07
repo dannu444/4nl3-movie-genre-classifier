@@ -1,0 +1,13 @@
+\subsection{Error Analysis}
+
+To better understand the performance of our model, we analyzed the errors made by the RNN using evaluation metrics and the confusion matrix. The confusion matrix provides insight into how predictions are distributed across classes and helps identify which genres are frequently misclassified.
+
+From the results, the model appears to perform reasonably well on more common genres such as Drama and Comedy. These genres have a larger number of training examples, which allows the model to learn more consistent patterns. In contrast, the model performs poorly on less frequent genres such as Film-Noir, Fantasy, and War. These classes have very few examples in the dataset, making it difficult for the model to learn meaningful representations.
+
+A clear pattern observed in the confusion matrix is that the model tends to predict more frequent classes even when the true label belongs to a rarer category. This indicates a bias toward dominant classes, which is also reflected in the relatively low F1 score despite moderate accuracy. Additionally, genres with overlapping characteristics, such as Action and Adventure or Drama and Romance, are often confused with each other due to similarities in their plot descriptions.
+
+Compared to other models, our RNN struggles more with capturing nuanced semantic relationships in the text. Models such as BERT perform better because they use pretrained contextual embeddings, which provide richer representations of language. In contrast, our model uses static embeddings that do not adapt during training, limiting its ability to capture deeper meaning.
+
+If we were to continue improving this model, several steps could be taken. First, using pretrained embeddings such as GloVe or allowing the embedding layer to be trainable could improve representation quality. Second, replacing the simple RNN with more advanced architectures such as LSTM or GRU could help capture longer dependencies in the text. Third, addressing class imbalance through techniques such as weighted loss functions or resampling could improve performance on underrepresented genres.
+
+Overall, the error analysis highlights that while the RNN model captures some useful patterns, it struggles with class imbalance and complex semantic relationships, suggesting that improvements in both representation and architecture would likely lead to better performance.

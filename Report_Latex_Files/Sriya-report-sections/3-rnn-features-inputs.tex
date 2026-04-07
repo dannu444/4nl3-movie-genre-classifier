@@ -1,0 +1,11 @@
+\subsection{Features and Inputs}
+
+The input to our model consists of movie plot descriptions represented as sequences of tokens. Each plot is first preprocessed through tokenization and normalization, where text is converted to lowercase and split into individual words. A vocabulary is then constructed from the training data, mapping each unique token to a numerical index. These sequences are padded or truncated to a fixed length to ensure consistent input dimensions for the model.
+
+Instead of using traditional feature engineering methods such as bag-of-words or TF-IDF representations, our approach relies on representation learning through word embeddings. Each token is converted into a dense vector using an embedding layer. In our implementation, these embeddings are static, meaning they are initialized randomly and not updated during training. This allows the model to learn patterns based on consistent word representations without overfitting to small variations in the dataset.
+
+The use of word embeddings is motivated by their ability to capture semantic relationships between words, which is particularly useful for understanding natural language. Unlike sparse representations, embeddings provide a more compact and informative representation of text, enabling the model to generalize better across similar inputs.
+
+We did not perform explicit feature selection, as the embedding layer implicitly learns useful representations of the input tokens. Additionally, no data augmentation techniques were applied. However, variation in the experimental setup was achieved through differences in model architecture and comparison with other approaches such as logistic regression and transformer-based models used by other group members.
+
+Overall, the inputs to the RNN model are sequences of tokenized text represented as static word embeddings, forming the basis for learning sequential patterns in movie plot descriptions.

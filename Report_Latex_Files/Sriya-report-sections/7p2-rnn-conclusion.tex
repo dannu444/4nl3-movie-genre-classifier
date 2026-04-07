@@ -1,0 +1,9 @@
+\subsection{Conclusion}
+
+In this work, we implemented a recurrent neural network (RNN) model with static embeddings for the task of movie genre classification using plot descriptions. The model was able to learn basic sequential patterns from the input text and achieved performance comparable to the majority baseline in terms of accuracy, while showing a noticeable improvement in weighted F1 score. This suggests that the model captures information across multiple classes rather than focusing only on the most frequent genre.
+
+However, the overall performance of the RNN was lower than more advanced models such as logistic regression with engineered features and transformer-based approaches like BERT. This highlights the limitations of using static embeddings and simple RNN architectures for complex natural language tasks. In particular, the model struggled with class imbalance and distinguishing between genres with similar characteristics.
+
+Despite these limitations, the RNN provides a useful intermediate approach between simple baselines and more complex models. It demonstrates the importance of sequence modeling while also showing that representation quality plays a critical role in performance. Future work could explore the use of pretrained embeddings, more advanced recurrent architectures such as LSTM or GRU, and techniques to address class imbalance.
+
+Overall, this work emphasizes that while simpler neural models can capture meaningful patterns in text, more sophisticated approaches are often necessary to achieve strong performance on real-world natural language processing tasks.

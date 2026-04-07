@@ -1,0 +1,11 @@
+\subsection{Comparison}
+
+To evaluate the effectiveness of our approach, we compared the performance of our RNN model with both simple baselines and models developed by other group members. The baselines included a majority class predictor and a random classifier, which serve as reference points for assessing whether a model is learning meaningful patterns.
+
+Our RNN model achieved similar accuracy to the majority baseline but showed a clear improvement in weighted F1 score. This indicates that the model performs better across multiple classes rather than predicting only the most frequent class. In contrast, the random baseline performed significantly worse in both accuracy and F1 score, confirming that the task is non-trivial and requires meaningful feature learning.
+
+When compared to other models developed in our group, such as logistic regression with engineered features and transformer-based approaches like BERT and zero-shot classification, the RNN model performed worse overall. These models achieved higher accuracy and F1 scores, likely due to their ability to capture richer semantic information. Logistic regression models benefit from carefully engineered features such as TF-IDF representations, while transformer-based models leverage pretrained contextual embeddings that capture deeper relationships between words.
+
+These results are largely consistent with expectations. Simpler models such as RNNs with static embeddings are limited in their ability to represent complex language patterns, whereas more advanced models are better equipped to handle ambiguity and long-range dependencies in text. Despite this, the RNN still provides useful improvements over basic baselines and serves as a meaningful intermediate approach between traditional methods and more complex neural models.
+
+Overall, this comparison highlights the trade-offs between model complexity and performance, and demonstrates the importance of using richer representations when dealing with natural language data.
